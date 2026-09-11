@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram id="pokemon-er" name="Conceptual ER Diagram">
+    <mxGraphModel dx="1351" dy="1529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="Conceptual ER Diagram" vertex="1">
+          <mxGeometry height="40" width="940" x="330" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pokemon_set" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;PokemonSet&lt;/b&gt;&lt;br&gt;&lt;u&gt;set_id&lt;/u&gt;&lt;br&gt;set_name&lt;br&gt;release_date&lt;br&gt;notes" vertex="1">
+          <mxGeometry height="150" width="220" x="80" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="product_type" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;ProductType&lt;/b&gt;&lt;br&gt;&lt;u&gt;product_type_id&lt;/u&gt;&lt;br&gt;type_name&lt;br&gt;description" vertex="1">
+          <mxGeometry height="130" width="220" x="80" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="product" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;Product&lt;/b&gt;&lt;br&gt;&lt;u&gt;product_id&lt;/u&gt;&lt;br&gt;product_name&lt;br&gt;image_url&lt;br&gt;notes" vertex="1">
+          <mxGeometry height="150" width="220" x="610" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;InventoryEntry&lt;/b&gt;&lt;br&gt;&lt;u&gt;entry_id&lt;/u&gt;&lt;br&gt;quantity&lt;br&gt;unit_purchase_price&lt;br&gt;purchase_date&lt;br&gt;notes&lt;br&gt;created_at" vertex="1">
+          <mxGeometry height="200" width="250" x="1170" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="external_listing" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;ExternalListing&lt;/b&gt;&lt;br&gt;&lt;u&gt;listing_id&lt;/u&gt;&lt;br&gt;external_product_id&lt;br&gt;listing_url&lt;br&gt;notes" vertex="1">
+          <mxGeometry height="150" width="250" x="1170" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="price_source" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;PriceSource&lt;/b&gt;&lt;br&gt;&lt;u&gt;source_id&lt;/u&gt;&lt;br&gt;source_name&lt;br&gt;base_url&lt;br&gt;notes" vertex="1">
+          <mxGeometry height="150" width="250" x="1170" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="market_price" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontSize=14;strokeWidth=2;" value="&lt;b&gt;MarketPrice&lt;/b&gt;&lt;br&gt;&lt;u&gt;price_id&lt;/u&gt;&lt;br&gt;price&lt;br&gt;currency&lt;br&gt;retrieved_at&lt;br&gt;notes" vertex="1">
+          <mxGeometry height="170" width="220" x="610" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_set_product" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="belongs_to" vertex="1">
+          <mxGeometry height="80" width="140" x="380" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_type_product" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="classified_as" vertex="1">
+          <mxGeometry height="80" width="140" x="380" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_product_inventory" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="owned_as" vertex="1">
+          <mxGeometry height="80" width="140" x="920" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_product_listing" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="mapped_to" vertex="1">
+          <mxGeometry height="80" width="140" x="920" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_source_listing" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="provided_by" vertex="1">
+          <mxGeometry height="80" width="140" x="1175" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_listing_price" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;" value="records" vertex="1">
+          <mxGeometry height="80" width="140" x="920" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="pokemon_set" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_set_product" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="rel_set_product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="product" value="0..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="product_type" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_type_product" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="rel_type_product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="product" value="1..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_product_inventory" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="rel_product_inventory" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="inventory" value="1..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_product_listing" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="rel_product_listing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="external_listing" value="1..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="price_source" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_source_listing" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="rel_source_listing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="external_listing" value="1..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="external_listing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="rel_listing_price" value="0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="rel_listing_price" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;fontSize=12;" target="market_price" value="1..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
