@@ -6,11 +6,11 @@ A web application for tracking sealed Pokémon TCG inventory, purchase history, 
 
 ### ER Diagram
 
-![ER Diagram](./docs/er-diagram.svg)
+![ER Diagram](./docs/diagrams/er-diagram.svg)
 
 ### Relational Schema
 
-![Relational Schema](./docs/relational-schema.svg)
+![Relational Schema](./docs/diagrams/relational-schema.svg)
 
 ## Documentation
 
