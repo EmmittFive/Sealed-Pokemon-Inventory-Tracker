@@ -1,0 +1,84 @@
+Project pokemon_sealed_inventory_tracker {
+  database_type: 'PostgreSQL'
+  Note: 'Relational schema for the Pokémon Sealed Inventory Tracker.'
+}
+
+Table pokemon_set {
+  set_id integer [pk, increment]
+  set_name varchar(100) [not null, unique]
+  release_date date
+  notes text
+}
+
+Table product_type {
+  product_type_id integer [pk, increment]
+  type_name varchar(50) [not null, unique]
+  description text
+}
+
+Table product {
+  product_id integer [pk, increment]
+  set_id integer
+  product_type_id integer [not null]
+  product_name varchar(255) [not null]
+  image_url varchar(500)
+  notes text
+
+  Note: 'set_id is nullable because some sealed products may not belong cleanly to one Pokémon set.'
+}
+
+Table inventory_entry {
+  entry_id integer [pk, increment]
+  product_id integer [not null]
+  quantity integer [not null, note: 'CHECK quantity > 0']
+  unit_purchase_price numeric(10,2) [not null, note: 'CHECK unit_purchase_price >= 0']
+  purchase_date date [not null]
+  notes text
+  created_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+
+  Note: 'Each row represents one purchase lot / ownership entry for a product.'
+}
+
+Table price_source {
+  source_id integer [pk, increment]
+  source_name varchar(100) [not null, unique]
+  base_url varchar(500)
+  notes text
+}
+
+Table external_listing {
+  listing_id integer [pk, increment]
+  product_id integer [not null]
+  source_id integer [not null]
+  external_product_id varchar(255) [not null]
+  listing_url varchar(500)
+  notes text
+
+  indexes {
+    (source_id, external_product_id) [unique, name: 'uq_external_listing_source_product']
+  }
+
+  Note: 'Maps one internal product to its listing/product identifier on an external pricing source.'
+}
+
+Table market_price {
+  price_id integer [pk, increment]
+  listing_id integer [not null]
+  price numeric(10,2) [not null, note: 'CHECK price >= 0']
+  currency char(3) [not null, default: 'USD']
+  retrieved_at timestamptz [not null, default: `CURRENT_TIMESTAMP`]
+  notes text
+
+  indexes {
+    (listing_id, retrieved_at) [name: 'idx_market_price_listing_retrieved']
+  }
+
+  Note: 'Historical price observations. Current price is derived from the latest retrieved_at value.'
+}
+
+Ref: product.set_id > pokemon_set.set_id [delete: set null, update: cascade]
+Ref: product.product_type_id > product_type.product_type_id [delete: restrict, update: cascade]
+Ref: inventory_entry.product_id > product.product_id [delete: restrict, update: cascade]
+Ref: external_listing.product_id > product.product_id [delete: restrict, update: cascade]
+Ref: external_listing.source_id > price_source.source_id [delete: restrict, update: cascade]
+Ref: market_price.listing_id > external_listing.listing_id [delete: cascade, update: cascade]
